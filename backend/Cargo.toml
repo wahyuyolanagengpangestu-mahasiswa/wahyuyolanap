@@ -1,0 +1,38 @@
+[package]
+name = "sla-tracker-backend"
+version = "1.0.0"
+edition = "2021"
+authors = ["Wahyu Yolan Ageng Pangestu", "Dr. Erliyan Redy Susanto, M.Kom"]
+description = "Backend REST API & Async SLA Tracking Engine Kota Bandar Lampung"
+
+[dependencies]
+axum = { version = "0.7", features = ["multipart", "macros"] }
+tokio = { version = "1.37", features = ["full"] }
+tower = { version = "0.4", features = ["util", "timeout", "limit"] }
+tower-http = { version = "0.5", features = ["cors", "trace"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "postgres", "chrono", "uuid"] }
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.8", features = ["v4", "serde"] }
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+kamadak-exif = "0.5"
+aes-gcm = "0.10"
+base64 = "0.22"
+ed25519-dalek = { version = "2.1", features = ["rand_core"] }
+rand = "0.8"
+
+[dev-dependencies]
+tokio-test = "0.4"
+reqwest = { version = "0.12", features = ["json", "multipart"] }
+
+[[bin]]
+name = "sla-server"
+path = "src/main.rs"
+
+[lib]
+name = "sla_tracker_backend"
+path = "src/lib.rs"
+

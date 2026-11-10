@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-brandText-main bg-surface overflow-x-hidden;
+  }
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EFF4FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4C6CF;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #74777F;
+}
+
+/* Monospace numbers tabular alignment */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle glow for critical emergency markers */
+@keyframes criticalPulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(186, 26, 26, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(186, 26, 26, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(186, 26, 26, 0);
+  }
+}
+
+.critical-glow {
+  animation: criticalPulseGlow 1.8s infinite;
+}
+
